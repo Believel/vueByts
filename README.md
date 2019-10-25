@@ -209,3 +209,26 @@ Vue.use(ElementUI);
 }
 ```
 ## axios的使用
+1. 安装 `npm install axios @types/axios`
+2. 封装 `axios.ts`
+```js
+import axios, { AxiosError } from 'axios';
+
+axios.defaults.baseURL = '/v1/api';
+axios.interceptors.response.use(function(response) {
+  return response;
+}, function(error: AxiosError) {
+  return Promise.reject(error);
+});
+
+export default axios;
+
+```
+3. 调用
+```js
+export async function getUnits(id: string) {
+  // 使用泛型可以服用接口，要定义具体的返回的数据的接口类型，否则就会报unknown的警告
+  const response = await axios.get<Units>(`/self/packages/${id}/units`);
+  return (response.data) as Units;
+}
+```
