@@ -9,6 +9,7 @@
       </li>
     </ul>
     <hr>
+    <el-button type="primary" @click="goAbout">go About page</el-button>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { Todo } from '../types/todo';
 import TodoItem from '@/components/TodoItem';
 import { State } from 'vuex-class';
+import { getUnits, Unit } from '@/api/demo';
 
 @Component({
   components: {
@@ -30,16 +32,18 @@ export default class Home extends Vue {
   //   { text: '睡觉', complete: false},
   //   { text: '打豆豆', complete: false}
   // ]
+  
   @State('lists') public lists!:[];
   // computed 计算属性
   get count() {
-    return this.lists.length
+    return this.lists.length;
   }
   public say(msg: string): void {
-    console.log('收到子组件发送的消息：'+ msg)
+    console.log('收到子组件发送的消息：'+ msg);
   }
-  // private mounted ():void {
-  // }
+  public goAbout(): void {
+    this.$router.push({ path: '/about'});
+  }
 }
 </script>
 <style lang="scss">
