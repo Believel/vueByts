@@ -23,7 +23,7 @@ export default new Router({
     {
       path: '/cascader',
       name: 'cascader',
-      component: CascaderApp
-    }
+      component: CascaderApp,
+    },
   ],
 });

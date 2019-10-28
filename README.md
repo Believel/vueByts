@@ -232,3 +232,37 @@ export async function getUnits(id: string) {
   return (response.data) as Units;
 }
 ```
+##  案例: ts实现一个vue版的级联组件
+### 问题
+1. 在`.vue`文件中导入`.vue`文件报警告？
+    * 
+    ![](https://raw.githubusercontent.com/Believel/MarkdownPhotos/master/vuecli3.0byts/5%E5%AF%BC%E5%85%A5vue%E6%96%87%E4%BB%B6%E6%8A%A5%E8%AD%A6%E5%91%8A.png)
+    * 解决办法
+    ```js
+    // 前提在`./src`下面定义的`shim.vue.d.ts`也是不能解决这个警告的
+    // 方法1：添加后缀名.vue
+    import CascaderItem from '@/components/CascaderItem.vue';
+    // 方法2：添加忽视注释
+    // @ts-ignore
+    import CascaderItem from '@/components/CascaderItem';
+   ```
+ ### 相关页面
+ ```js
+  - src
+     - components
+        - Cascader.vue      
+        - CascaderItem.vue 
+     - directives
+        - clickOutside.ts // 点击级联元素外的元素不显示城市列表元素的指令
+     - types
+        - city.ts         // 城市数据的接口
+     - views
+        - CascaderApp.vue  // 级联入口文件
+     - mock
+        - data.json   // 城市的mock数据
+     - shims-vue.d.ts // 定义了模块允许json文件导入
+     
+ 
+ ```
+ ### 成果图
+ ![](https://raw.githubusercontent.com/Believel/MarkdownPhotos/master/vuecli3.0byts/6cascader.png)

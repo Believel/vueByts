@@ -23,8 +23,8 @@ import { getUnits, Unit } from '@/api/demo';
 
 @Component({
   components: {
-    TodoItem
-  }
+    TodoItem,
+  },
 })
 export default class Home extends Vue {
   // data 数据
@@ -33,14 +33,13 @@ export default class Home extends Vue {
   //   { text: '睡觉', complete: false},
   //   { text: '打豆豆', complete: false}
   // ]
-  
-  @State('lists') public lists!:[];
+  @State('lists') public lists!: [];
   // computed 计算属性
   get count() {
     return this.lists.length;
   }
   public say(msg: string): void {
-    console.log('收到子组件发送的消息：'+ msg);
+    console.log('收到子组件发送的消息：' + msg);
   }
   public goAbout(): void {
     this.$router.push({ path: '/about'});
