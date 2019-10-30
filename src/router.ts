@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import TodoList from './views/TodoList.vue';
 import CascaderApp from './views/CascaderApp.vue';
+import TreeApp from './views/TreeApp.vue';
 
 Vue.use(Router);
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/cascader',
       name: 'cascader',
       component: CascaderApp,
+    },
+    {
+      path: '/tree',
+      name: 'tree',
+      component: TreeApp,
     },
   ],
 });

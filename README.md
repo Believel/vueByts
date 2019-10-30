@@ -232,7 +232,7 @@ export async function getUnits(id: string) {
   return (response.data) as Units;
 }
 ```
-##  案例: ts实现一个vue版的级联组件
+##  案例1: ts实现一个vue版的级联组件
 ### 问题
 1. 在`.vue`文件中导入`.vue`文件报警告？
     * 
@@ -246,6 +246,9 @@ export async function getUnits(id: string) {
     // @ts-ignore
     import CascaderItem from '@/components/CascaderItem';
    ```
+2. 在使用递归的组件中使用`@emit`在父级那边是收不到参数的？
+    * 解决办法：在递归的组件中使用`this.$emit(eventName, params)`传消息给父级。
+3. 父级中添加不存在的属性，并且给此添加的属性赋值，此时和子级关联的这个Prop是不变化的，必须父级中的属性必须存在，这样子级才能观察到变化的值？？ 这个现在用@Prop观察到的是这种现象，还不知道原因。突然恍然大悟，是vue2.x中不支持直接给属性赋值的：例如：data.checked = false,需要使用set方法，才能把其变成响应式数据
  ### 相关页面
  ```js
   - src
@@ -264,5 +267,60 @@ export async function getUnits(id: string) {
      
  
  ```
+ ### 实现功能描述
+ 1. 点击级联容器，显示下拉内容，点击之外的内容，隐藏下来内容。(自定义指令实现)
+ 2. 动态渲染数据，初始先展示第一级的数据，之后动态获取
+ 3. title中的选中值的显示在最外层组件中存储（[{},{},{}]），然后往下传。
+ 4. 点击选择下拉列表中的内容，就重新计算选中的值,然后把新值发给父级，父级拿到这个值，去获取下一级的列表值。获取下一级的值后，要把他放在它的对应父级的children里面
+ ```js
+ // 找父级，添加
+ public handle(id: string, children: City[]) {
+    const cloneOptions = cloneDeep(this.options);
+    let stack = [...cloneOptions];
+    // 树可以深度遍历， 也可以广度遍历
+    let index: number = 0;
+    let current: City;
+    // !采用广度遍历实现
+    while (current = stack[index++]) {
+      // 当前id 和 id不一样
+      if (current.id !== id) {
+        if (current.children) {
+          // 存储孩子节点
+          stack = stack.concat(current.children);
+        }
+      } else {
+        break;
+      }
+    }
+    // 找到匹配的说明有值
+    if (current) {
+      current.children = children;
+      // 更新父级传过来的props中的options
+      this.$emit('update:options', cloneOptions);
+    }
+  }
+ ```
+ 5. 每一级选中的列表中的值高亮显示(用title中存储的值和列表中每一项值做比较，相等就是选中的一项)
  ### 成果图
  ![](https://raw.githubusercontent.com/Believel/MarkdownPhotos/master/vuecli3.0byts/6cascader.png)
+
+## 案例2：使用ts实现Vue版的树形组件
+### 相关页面
+```js
+- components
+    - Tree.vue
+    - TreeNode.vue
+- mock
+    - treeData.json
+- types
+    - tree.ts
+- views
+    - TreeApp.vue
+- shims-vue.d.ts // 导入了相关图片的模块
+```
+### 实现功能描述
+1. 渲染已经存在的数据在页面中
+2. 点击箭头，可以展开或者折叠孩子节点，或者加载新的节点数据
+3. 点击复选框，可以选中或者取消选中当前节点，以及判断下层节点和上层节点的选中或者取消
+### 成果
+![](https://raw.githubusercontent.com/Believel/MarkdownPhotos/master/vuecli3.0byts/7tree.png)

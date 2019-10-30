@@ -11,6 +11,7 @@
     <hr>
     <el-button type="primary" @click="goAbout">go About page</el-button>
     <el-button type="primary" @click="goCascader">go Cascader page</el-button>
+    <el-button type="primary" @click="goTree">go Tree page</el-button>
   </div>
 </template>
 
@@ -47,9 +48,12 @@ export default class Home extends Vue {
   public goCascader(): void {
     this.$router.push({ path: '/cascader'});
   }
+  public goTree(): void {
+    this.$router.push({ path: '/tree'});
+  }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   .todolist {
     list-style: none;
     padding: 10px 0;
