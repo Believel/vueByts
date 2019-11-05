@@ -31,5 +31,22 @@ export default new Router({
       name: 'tree',
       component: TreeApp,
     },
+    {
+      path: '/demo',
+      name: 'demo',
+      component: () => import(/* webpackChunkName: "demo" */ './views/Demo.vue'),
+      children: [
+        {
+          path: '/css/popup',
+          name: 'popup',
+          component: () => import(/* webpackChunkName: "popup" */ './components/CssComponnets/Popup.vue')
+        },
+        {
+          path: '/css/accordion',
+          name: 'accordion',
+          component: () => import(/* webpackChunkName: "accordion" */ './components/CssComponnets/Accordion.vue')
+        },
+      ]
+    }
   ],
 });

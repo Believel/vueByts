@@ -12,6 +12,7 @@
     <el-button type="primary" @click="goAbout">go About page</el-button>
     <el-button type="primary" @click="goCascader">go Cascader page</el-button>
     <el-button type="primary" @click="goTree">go Tree page</el-button>
+    <el-button type="primary" @click="goDemo">go Demo page</el-button>
   </div>
 </template>
 
@@ -50,6 +51,9 @@ export default class Home extends Vue {
   }
   public goTree(): void {
     this.$router.push({ path: '/tree'});
+  }
+  public goDemo(): void {
+    this.$router.push({ path: '/demo'});
   }
 }
 </script>
