@@ -10,7 +10,6 @@
 <script lang="ts">
   import {Vue, Component } from 'vue-property-decorator';
   import bg7 from '@/assets/imgs/bg7.jpeg';
-  console.log(bg7)
   interface Data {
     url: string;
   }
