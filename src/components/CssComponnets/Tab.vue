@@ -42,13 +42,13 @@ export default class Tab extends Vue {
   public handleClickTab(item: TabData) {
     this.tabs.forEach((v) => {
       v.isActive = false;
-    })
+    });
     item.isActive = true;
   }
   public handleClickTab2(item: TabData) {
     this.tabs2.forEach((v) => {
       v.isActive = false;
-    })
+    });
     item.isActive = true;
   }
 }

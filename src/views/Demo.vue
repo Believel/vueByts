@@ -37,6 +37,9 @@
       { type: 'danger', isActive: true, pageName: 'tab', text: 'tab栏底部动画'},
     ];
     public goCssPage(type: string, item: Data): void {
+      this.data.forEach((v) => {
+        v.isActive = true;
+      });
       item.isActive = false;
       this.$router.push({ path: `/css/${type}`});
     }

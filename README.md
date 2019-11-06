@@ -324,3 +324,26 @@ export async function getUnits(id: string) {
 3. 点击复选框，可以选中或者取消选中当前节点，以及判断下层节点和上层节点的选中或者取消
 ### 成果
 ![](https://raw.githubusercontent.com/Believel/MarkdownPhotos/master/vuecli3.0byts/7tree.png)
+
+## 案例3：一些常用的css布局实现
+### 相关页面
+```js
+- components
+    - CssComponents
+      - Accordion.vue  手风琴
+      - BottomSticky.vue 底部自适应
+      - Center.vue 高度自动撑满
+      - Cursor.vue 手型
+      - Flash.vue 图片闪光
+      - Glass.vue 毛玻璃效果
+      - Hover.vue 鼠标悬停动画
+      - Loading.vue 加载
+      - Popup.vue 鼠标滑过弹出内容
+      - Scroll.vue 自定义滚动条样式
+      - Shadow.vue  阴影效果
+      - Static.vue 初始化默认css样式
+      - Sticky.vue 粘性球
+      - Tab.vue tab栏底部动画
+- views
+    - Demo.vue
+```
