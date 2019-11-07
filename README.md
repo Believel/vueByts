@@ -347,3 +347,11 @@ export async function getUnits(id: string) {
 - views
     - Demo.vue
 ```
+![](https://raw.githubusercontent.com/Believel/MarkdownPhotos/master/vuecli3.0byts/9css.png)
+## 案例4：了解编辑器
+### 相关页面
+```js
+- views
+    - Editor.vue
+```
+![](https://raw.githubusercontent.com/Believel/MarkdownPhotos/master/vuecli3.0byts/8editor.png)

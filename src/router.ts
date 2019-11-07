@@ -112,6 +112,11 @@ export default new Router({
       path: '/imap',
       name: 'imap',
       component: () => import(/* webpackChunkName: "imap" */ './views/IMap.vue'),
-    }
+    },
+    {
+      path: '/editor',
+      name: 'editor',
+      component: () => import(/* webpackChunkName: "editor" */ './views/Editor.vue'),
+    },
   ],
 });
