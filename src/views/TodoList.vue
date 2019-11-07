@@ -13,6 +13,7 @@
     <el-button type="primary" @click="goCascader">go Cascader page</el-button>
     <el-button type="primary" @click="goTree">go Tree page</el-button>
     <el-button type="primary" @click="goDemo">go Demo page</el-button>
+    <el-button type="primary" @click="goMap">百度地图</el-button>
   </div>
 </template>
 
@@ -54,6 +55,9 @@ export default class Home extends Vue {
   }
   public goDemo(): void {
     this.$router.push({ path: '/demo'});
+  }
+  public goMap(): void {
+    this.$router.push({ path: '/imap'});
   }
 }
 </script>

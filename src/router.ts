@@ -107,6 +107,11 @@ export default new Router({
           component: () => import(/* webpackChunkName: "tab" */ './components/CssComponnets/Tab.vue')
         },
       ]
+    },
+    {
+      path: '/imap',
+      name: 'imap',
+      component: () => import(/* webpackChunkName: "imap" */ './views/IMap.vue'),
     }
   ],
 });
