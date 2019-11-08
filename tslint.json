@@ -19,6 +19,7 @@
     "only-arrow-functions": false,
     "trailing-comma": false,
     "eofline": false,
-    "no-conditional-assignment": false
+    "no-conditional-assignment": false,
+    "max-line": ["error", {"code": 600}]
   }
 }
