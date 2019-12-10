@@ -118,5 +118,10 @@ export default new Router({
       name: 'editor',
       component: () => import(/* webpackChunkName: "editor" */ './views/Editor.vue'),
     },
+    {
+      path: '/echarts',
+      name: 'echarts',
+      component: () => import(/* webpackChunkName: "echarts" */ './views/IEcharts.vue'),
+    },
   ],
 });
