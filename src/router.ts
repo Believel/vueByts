@@ -106,6 +106,11 @@ export default new Router({
           name: 'tab',
           component: () => import(/* webpackChunkName: "tab" */ './components/CssComponnets/Tab.vue')
         },
+        {
+          path: '/css/input',
+          name: 'input',
+          component: () => import(/* webpackChunkName: "input" */ './components/CssComponnets/Input.vue')
+        },
       ]
     },
     {

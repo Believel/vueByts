@@ -35,6 +35,7 @@
       { type: 'info', isActive: true, pageName: 'bottom', text: '底部自适应'},
       { type: 'warning', isActive: true, pageName: 'glass', text: '毛玻璃效果'},
       { type: 'danger', isActive: true, pageName: 'tab', text: 'tab栏底部动画'},
+      { type: 'success', isActive: true, pageName: 'input', text: '实现浮动标签效果'},
     ];
     public goCssPage(type: string, item: Data): void {
       this.data.forEach((v) => {
