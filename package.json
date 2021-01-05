@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/echarts": "^4.4.1",
     "@types/lodash": "^4.14.144",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-plugin-component": "^1.1.1",
     "core-js": "^2.6.5",
     "echarts": "^4.5.0",
